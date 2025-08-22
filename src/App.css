@@ -1,0 +1,521 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Login & Register Styles */
+.login-container, .register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-card, .register-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.login-card h2, .register-card h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.login-card h3, .register-card h3 {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.btn-danger {
+  padding: 8px 16px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #c3e6cb;
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.auth-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.demo-accounts {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 25px;
+  border-left: 4px solid #667eea;
+}
+
+.demo-accounts h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.demo-accounts p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.dashboard-header {
+  background: white;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.dashboard-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h1 {
+  color: #333;
+  font-size: 24px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-details {
+  text-align: right;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.user-role {
+  color: #666;
+  font-size: 14px;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #667eea;
+  display: block;
+}
+
+.stat-label {
+  color: #666;
+  margin-top: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Tables */
+.section-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px 25px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.data-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+.data-table th:hover {
+  background: #e9ecef;
+}
+
+.data-table tr:hover {
+  background: #f8f9fa;
+}
+
+/* Rating Stars */
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #ffc107;
+  font-size: 16px;
+}
+
+.star.empty {
+  color: #e9ecef;
+}
+
+.rating-input {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.rating-input button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #e9ecef;
+  cursor: pointer;
+}
+
+.rating-input button.active,
+.rating-input button:hover {
+  color: #ffc107;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header .container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .section-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-table {
+    font-size: 14px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 10px;
+  }
+}
+
+/* Store Cards for Normal Users */
+.stores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.store-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.store-card:hover {
+  transform: translateY(-5px);
+}
+
+.store-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.store-address {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.store-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rating-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.user-rating-section {
+  border-top: 1px solid #e9ecef;
+  padding-top: 15px;
+}
+
+.your-rating {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
